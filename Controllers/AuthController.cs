@@ -23,7 +23,8 @@ namespace Jobify.Controllers
         private readonly IOptionsSnapshot<JwtSettings> _jwtSettings;
         private readonly IMapper _mapper;
 
-        public AuthController(UserManager<User> userManager, RoleManager<Role> roleManager, IOptionsSnapshot<JwtSettings> jwtSettings, IMapper mapper)        {
+        public AuthController(UserManager<User> userManager, RoleManager<Role> roleManager, IOptionsSnapshot<JwtSettings> jwtSettings, IMapper mapper)
+        {
             _userManager = userManager;
             _roleManager = roleManager;
             _jwtSettings = jwtSettings;

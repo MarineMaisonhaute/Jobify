@@ -15,7 +15,7 @@ namespace Jobify.Models
         public string Country { get; set; }
         public float Latitude { get; set; }
         public float Longitude { get; set; }
-        public int JobId { get; set; }
+        public int? JobId { get; set; }
         [ForeignKey("JobId")]
         public Job Job { get; set; }
     }

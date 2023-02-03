@@ -3,6 +3,7 @@ using Jobify.Dto.Job;
 using Jobify.Dto.Post;
 using Jobify.Models;
 using Jobify.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
@@ -19,6 +20,8 @@ namespace Jobify.Controllers
             _postRepositories = postRepositories;
             _mapper = mapper;
         }
+
+        [Authorize]
         [HttpPost]
         public ActionResult CreatePost(CreatePostDto postDto)
         {

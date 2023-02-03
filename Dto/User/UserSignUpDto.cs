@@ -19,7 +19,7 @@ namespace Jobify.Dto.User
         public string Country { get; set; }
         public float Latitude { get; set; }
         public float Longitude { get; set; }
-        public int JobId { get; set; }
+        public int? JobId { get; set; }
     }
 }
 
