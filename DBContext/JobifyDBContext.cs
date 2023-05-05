@@ -33,6 +33,13 @@ namespace Jobify.DBContext
                 .WithMany()
                 .OnDelete(DeleteBehavior.NoAction);
 
+            modelBuilder.Entity<Job>()
+                .HasData(new Job
+                {
+                    JobId = 1,
+                    Name = "AUCUN"
+                });
+
             base.OnModelCreating(modelBuilder);
         }
     }

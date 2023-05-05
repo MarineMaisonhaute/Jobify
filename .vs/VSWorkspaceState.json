@@ -1,10 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\Dto",
-    "\\Dto\\User",
-    "\\Models"
+    ""
   ],
-  "SelectedNode": "\\Dto\\User\\UserLoginDto.cs",
+  "SelectedNode": "\\appsettings.json",
   "PreviewInSolutionExplorer": false
 }

@@ -3,6 +3,7 @@ using Jobify.DBContext;
 using Jobify.Dto.User;
 using Jobify.Models;
 using Jobify.Settings;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -95,6 +96,18 @@ namespace Jobify.Controllers
                 return Ok();
             }
             return Problem(roleResult.Errors.First().Description, null, 500);
+        }
+
+        [Authorize]
+        [HttpGet("current-user/roles")]
+        public async Task<ActionResult<IEnumerable<string>>> GetCurrentUserRoles()
+        {
+            // Resolve the user via their email
+            var user = await _userManager.GetUserAsync(User);
+            // Get the roles for the user
+            var roles = await _userManager.GetRolesAsync(user);
+
+            return Ok(roles);
         }
 
         private string GenerateJwt(User user, IList<string> roles)

@@ -1,5 +1,4 @@
-﻿using Jobify.Dto.Job;
-using Jobify.Dto.Post;
+﻿using Jobify.Dto.Post;
 using Jobify.Models;
 
 namespace Jobify.Repositories

@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Jobify.Migrations
 {
     [DbContext(typeof(JobifyDBContext))]
-    [Migration("20230203132035_InitialMigration")]
+    [Migration("20230210131959_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -128,7 +128,8 @@ namespace Jobify.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("PostId")
+                    b.Property<int?>("PostId")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<Guid>("UserId")

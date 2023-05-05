@@ -11,7 +11,8 @@ namespace Jobify.Profiles
         public UserProfile()
         {
             CreateMap<UserLoginDto, User>();
-            CreateMap<UserSignUpDto, User>();
+            CreateMap<UserSignUpDto, User>()
+                .ForMember(dest => dest.DateOfBirth, opt => opt.MapFrom(src => DateTime.Parse(src.DateOfBirth)));
         }
     }
 }

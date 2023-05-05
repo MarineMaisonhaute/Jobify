@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using Jobify.DBContext;
-using Jobify.Dto.Job;
 using Jobify.Dto.Post;
 using Jobify.Models;
 

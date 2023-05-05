@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\marin\\OneDrive\\Bureau\\COURS\\Jobify\\Jobify.csproj": {}
+    "C:\\Users\\marin\\OneDrive\\Documents\\Jobify - BACKUP\\Jobify.csproj": {}
   },
   "projects": {
-    "C:\\Users\\marin\\OneDrive\\Bureau\\COURS\\Jobify\\Jobify.csproj": {
+    "C:\\Users\\marin\\OneDrive\\Documents\\Jobify - BACKUP\\Jobify.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\marin\\OneDrive\\Bureau\\COURS\\Jobify\\Jobify.csproj",
+        "projectUniqueName": "C:\\Users\\marin\\OneDrive\\Documents\\Jobify - BACKUP\\Jobify.csproj",
         "projectName": "Jobify",
-        "projectPath": "C:\\Users\\marin\\OneDrive\\Bureau\\COURS\\Jobify\\Jobify.csproj",
+        "projectPath": "C:\\Users\\marin\\OneDrive\\Documents\\Jobify - BACKUP\\Jobify.csproj",
         "packagesPath": "C:\\Users\\marin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\marin\\OneDrive\\Bureau\\COURS\\Jobify\\obj\\",
+        "outputPath": "C:\\Users\\marin\\OneDrive\\Documents\\Jobify - BACKUP\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\marin\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -60,7 +60,7 @@
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[6.0.10, )"
+              "version": "[6.0.9, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
@@ -70,11 +70,11 @@
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[6.0.10, )"
+              "version": "[6.0.9, )"
             },
             "Microsoft.Extensions.Identity.Stores": {
               "target": "Package",
-              "version": "[6.0.10, )"
+              "version": "[6.0.9, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

@@ -1,4 +1,5 @@
-﻿namespace Jobify.Models
+﻿
+namespace Jobify.Models
 {
     public class Job
     {

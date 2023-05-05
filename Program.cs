@@ -40,6 +40,7 @@ builder.Services.AddIdentity<User, Role>(options =>
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 builder.Services.AddScoped<IPostRepositories, PostRepositories>();
+builder.Services.AddScoped<IJobRepositories, JobRepositories>();
 
 var configuration = new ConfigurationBuilder()
     .AddJsonFile("appsettings.json", optional: false)
@@ -64,7 +65,9 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseAuthorization();
+app.UseAuth();
+
+app.UseCors("AllowAll");
 
 app.MapControllers();
 

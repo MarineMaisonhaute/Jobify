@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Jobify.Dto.Job
+namespace Jobify.Dto.Post
 {
     public class UpdatePostDto
     {

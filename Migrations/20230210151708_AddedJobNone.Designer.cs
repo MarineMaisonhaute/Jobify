@@ -4,6 +4,7 @@ using Jobify.DBContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Jobify.Migrations
 {
     [DbContext(typeof(JobifyDBContext))]
-    partial class JobifyDBContextModelSnapshot : ModelSnapshot
+    [Migration("20230210151708_AddedJobNone")]
+    partial class AddedJobNone
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -37,6 +39,13 @@ namespace Jobify.Migrations
                     b.HasKey("JobId");
 
                     b.ToTable("Job");
+
+                    b.HasData(
+                        new
+                        {
+                            JobId = 1,
+                            Name = "AUCUN"
+                        });
                 });
 
             modelBuilder.Entity("Jobify.Models.Post", b =>
@@ -69,8 +78,8 @@ namespace Jobify.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Price")
-                        .HasColumnType("int");
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
@@ -126,7 +135,8 @@ namespace Jobify.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("PostId")
+                    b.Property<int?>("PostId")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<Guid>("UserId")
@@ -258,9 +268,6 @@ namespace Jobify.Migrations
 
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
 
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
