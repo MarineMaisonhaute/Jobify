@@ -15,7 +15,7 @@ namespace Jobify.Models
         public Guid UserId { get; set; }
         [ForeignKey("UserId")]
         public User User { get; set; }
-        public decimal Price { get; set; }
+        public int Price { get; set; }
         public DateTime FinishDate { get; set; }
         public string Department { get; set; }
 

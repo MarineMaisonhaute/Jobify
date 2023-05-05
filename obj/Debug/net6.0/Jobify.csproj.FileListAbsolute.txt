@@ -148,3 +148,8 @@ C:\Users\marin\OneDrive\Bureau\COURS\Jobify\obj\Debug\net6.0\refint\Jobify.dll
 C:\Users\marin\OneDrive\Bureau\COURS\Jobify\obj\Debug\net6.0\Jobify.pdb
 C:\Users\marin\OneDrive\Bureau\COURS\Jobify\obj\Debug\net6.0\Jobify.genruntimeconfig.cache
 C:\Users\marin\OneDrive\Bureau\COURS\Jobify\obj\Debug\net6.0\ref\Jobify.dll
+C:\Users\marin\OneDrive\Bureau\COURS\Jobify\obj\Debug\net6.0\staticwebassets\msbuild.Jobify.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\marin\OneDrive\Bureau\COURS\Jobify\obj\Debug\net6.0\staticwebassets\msbuild.build.Jobify.props
+C:\Users\marin\OneDrive\Bureau\COURS\Jobify\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.Jobify.props
+C:\Users\marin\OneDrive\Bureau\COURS\Jobify\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.Jobify.props
+C:\Users\marin\OneDrive\Bureau\COURS\Jobify\obj\Debug\net6.0\staticwebassets.pack.json

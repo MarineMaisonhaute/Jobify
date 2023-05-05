@@ -195,7 +195,7 @@ namespace Jobify.Migrations
                     PhotoURL = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     JobId = table.Column<int>(type: "int", nullable: false),
                     UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Price = table.Column<int>(type: "int", nullable: false),
                     FinishDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Department = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
