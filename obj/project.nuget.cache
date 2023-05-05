@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Ce5it+FMag8SECpJkcc3EsG36QnvHpdS8zWqCbps2w+7Ez95Vz93CqidTqNdYkWWAKfMvgEdW0ZVPnN3gKPCTw==",
+  "dgSpecHash": "jwv4JS0j9oaL4vIPsJTUuzX6kZPpzcZgHnR3o7VH/jSrzGzHaJNIRvC/dlBw89EFw2L5GPqRYTjfpk/jV9npNw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\marin\\OneDrive\\Documents\\Jobify - BACKUP\\Jobify.csproj",
+  "projectFilePath": "C:\\Users\\marin\\OneDrive\\Bureau\\COURS\\Jobify\\Jobify.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\marin\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
     "C:\\Users\\marin\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",

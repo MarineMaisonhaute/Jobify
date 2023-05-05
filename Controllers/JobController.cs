@@ -42,10 +42,15 @@ namespace Jobify.Controllers
         {
             return Ok(_jobRepositories.GetAll());
         }
-        [HttpGet("{search}")]
+        [HttpGet("name/{search}")]
         public ActionResult<IEnumerable<Job>> GetAutocomplete(string search)
         {
             return Ok(_jobRepositories.GetAutocomplete(search));
+        }
+        [HttpGet("id/{Id}")]
+        public ActionResult<IEnumerable<Job>> GetNameWithId(int Id)
+        {
+            return Ok(_jobRepositories.GetNameWithId(Id));
         }
         [HttpDelete("{jobIds}")]
         public ActionResult DeleteJobs(List<int> jobIds)

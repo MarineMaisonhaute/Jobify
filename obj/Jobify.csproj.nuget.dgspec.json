@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\marin\\OneDrive\\Documents\\Jobify - BACKUP\\Jobify.csproj": {}
+    "C:\\Users\\marin\\OneDrive\\Bureau\\COURS\\Jobify\\Jobify.csproj": {}
   },
   "projects": {
-    "C:\\Users\\marin\\OneDrive\\Documents\\Jobify - BACKUP\\Jobify.csproj": {
+    "C:\\Users\\marin\\OneDrive\\Bureau\\COURS\\Jobify\\Jobify.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\marin\\OneDrive\\Documents\\Jobify - BACKUP\\Jobify.csproj",
+        "projectUniqueName": "C:\\Users\\marin\\OneDrive\\Bureau\\COURS\\Jobify\\Jobify.csproj",
         "projectName": "Jobify",
-        "projectPath": "C:\\Users\\marin\\OneDrive\\Documents\\Jobify - BACKUP\\Jobify.csproj",
+        "projectPath": "C:\\Users\\marin\\OneDrive\\Bureau\\COURS\\Jobify\\Jobify.csproj",
         "packagesPath": "C:\\Users\\marin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\marin\\OneDrive\\Documents\\Jobify - BACKUP\\obj\\",
+        "outputPath": "C:\\Users\\marin\\OneDrive\\Bureau\\COURS\\Jobify\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\marin\\AppData\\Roaming\\NuGet\\NuGet.Config",

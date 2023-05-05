@@ -2,6 +2,7 @@
 using Jobify.DBContext;
 using Jobify.Models;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Jobify.Repositories
 {
@@ -33,6 +34,10 @@ namespace Jobify.Repositories
         public List<Job> GetAutocomplete(string search)
         {
             return _context.Job.Where(j => j.Name.Contains(search)).ToList();
+        }
+        public List<Job> GetNameWithId(int Id)
+        {
+            return _context.Job.Where(j => j.JobId.Equals(Id)).ToList();
         }
     }
 }

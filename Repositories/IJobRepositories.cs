@@ -9,5 +9,6 @@ namespace Jobify.Repositories
         void DeleteJob(List<int> jobIds);
         void CreateJobs(List<Job> jobs);
         List<Job> GetAutocomplete(string search);
+        List<Job> GetNameWithId(int Id);
     }
 }
