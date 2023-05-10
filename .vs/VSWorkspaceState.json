@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Models"
   ],
-  "SelectedNode": "\\appsettings.json",
+  "SelectedNode": "\\Models\\Job.cs",
   "PreviewInSolutionExplorer": false
 }
