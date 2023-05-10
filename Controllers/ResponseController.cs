@@ -13,6 +13,7 @@ namespace Jobify.Controllers
     {
         private readonly IResponseRepositories _responseRepositories;
         private readonly IMapper _mapper;
+
         public ResponseController(IResponseRepositories responseRepositories, IMapper mapper)
         {
             _responseRepositories = responseRepositories;
