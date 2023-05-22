@@ -15,19 +15,36 @@ namespace Jobify.Controllers
     public class RatingController : Controller
     {
         private readonly IRatingRepositories _ratingRepositories;
+        private readonly IPostRepositories _postRepository;
         private readonly IMapper _mapper;
-        public RatingController(IRatingRepositories ratingRepositories, IMapper mapper)
+        public RatingController(IRatingRepositories ratingRepositories, IMapper mapper, IPostRepositories postRepository)
         {
             _ratingRepositories = ratingRepositories;
             _mapper = mapper;
+            _postRepository = postRepository;
         }
-        [HttpPost("{ratedId}")]
-        public ActionResult CreateRating(CreateRatingDto ratingDto, Guid ratedId)
+        [HttpPost]
+        public ActionResult CreateRating(CreateRatingDto ratingDto)
         {
+            Rating? ratingCheck = _ratingRepositories.GetRatingByPostUsersIds(ratingDto.RatedUserId, Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)), ratingDto.PostId);
+
+            if(ratingCheck != null)
+            {
+                return BadRequest("Utilisateur déjà noté pour ce post.");
+            }
+
             Rating rating = _mapper.Map<Rating>(ratingDto);
 
             rating.RaterUserId = Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
-            rating.RatedUserId = ratedId;
+
+            Post post = _postRepository.GetPostById(ratingDto.PostId);
+
+            if (post.UserId != Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)))
+            {
+                return BadRequest("Not your post.");
+            }
+
+            rating.RatedUserId = ratingDto.RatedUserId;
 
             _ratingRepositories.CreateRating(rating);
 

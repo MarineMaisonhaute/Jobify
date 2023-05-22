@@ -10,17 +10,20 @@ namespace Jobify.Controllers
 {
     [ApiController]
     [Route("post")]
+    [Authorize]
     public class PostController : Controller
     {
         private readonly IPostRepositories _postRepositories;
         private readonly IMapper _mapper;
-        public PostController(IPostRepositories postRepositories, IMapper mapper)
+        private readonly IRatingRepositories _ratingRepositories;
+
+        public PostController(IPostRepositories postRepositories, IMapper mapper, IRatingRepositories ratingRepositories)
         {
             _postRepositories = postRepositories;
             _mapper = mapper;
+            _ratingRepositories = ratingRepositories;
         }
 
-        [Authorize]
         [HttpPost]
         public ActionResult CreatePost(CreatePostDto postDto)
         {
@@ -40,8 +43,27 @@ namespace Jobify.Controllers
             {
                 return NotFound();
             }
-            return _postRepositories.GetPostById(postId);
+            return Ok(post);
         }
+
+        [HttpGet("user")]
+        public ActionResult<IEnumerable<GetUserPostDto>> GetPostsByUserId()
+        {
+            IEnumerable<Post> posts = _postRepositories.GetPostByUserId(Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)));
+
+            IEnumerable<GetUserPostDto> getPostDto = _mapper.Map<IEnumerable<GetUserPostDto>>(posts);
+
+            foreach (var post in getPostDto)
+            {
+                foreach(var response in post.Responses)
+                {
+                    response.User.AverageRating = _ratingRepositories.GetAverageRatingByUserId(response.UserId);
+                }
+            }
+
+            return Ok(getPostDto);
+        }
+
         [HttpGet]
         public ActionResult<IEnumerable<Post>> GetPost()
         {

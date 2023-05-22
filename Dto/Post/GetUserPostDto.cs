@@ -1,23 +1,16 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Jobify.Models
+namespace Jobify.Dto.Post
 {
-    public class Post
+    public class GetUserPostDto
     {
         public int PostId { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public string PhotoURL { get; set; }
-        public int JobId { get; set; }
-        [ForeignKey("JobId")]
-        public Job Job { get; set; }
-        public Guid UserId { get; set; }
-        [ForeignKey("UserId")]
-        public User User { get; set; }
         public int Price { get; set; }
         public DateTime FinishDate { get; set; }
         public string Department { get; set; }
-        public ICollection<Response> Responses { get; set; }    
-
+        public ICollection<ResponseForPostDto> Responses { get; set; }
     }
 }

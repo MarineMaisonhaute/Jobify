@@ -30,6 +30,11 @@ namespace Jobify.DBContext
 
             modelBuilder.Entity<Response>()
                 .HasOne(e => e.Post)
+                .WithMany(e => e.Responses)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder.Entity<Rating>()
+                .HasOne(e => e.Post)
                 .WithMany()
                 .OnDelete(DeleteBehavior.NoAction);
 

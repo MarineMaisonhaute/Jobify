@@ -4,7 +4,8 @@ namespace Jobify.Dto.Rating
 {
     public class CreateRatingDto
     {
-        public string Comment { get; set; }
+        public Guid RatedUserId { get; set; }
+        public int PostId { get; set; }
         public int Note { get; set; }
     }
 }

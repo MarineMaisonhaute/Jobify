@@ -3,10 +3,13 @@ using Jobify.Dto.Rating;
 using Jobify.Dto.Response;
 using Jobify.Models;
 using Jobify.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace Jobify.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("response")]
     public class ResponseController : Controller
@@ -24,6 +27,8 @@ namespace Jobify.Controllers
         {
             Response response = _mapper.Map<Response>(responseDto);
 
+            response.UserId = Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+
             _responseRepositories.CreateResponse(response);
 
             return Ok();
@@ -38,6 +43,7 @@ namespace Jobify.Controllers
             }
             return _responseRepositories.GetResponseById(responseId);
         }
+
         [HttpGet]
         public ActionResult<IEnumerable<Response>> GetResponse()
         {

@@ -2,6 +2,7 @@
 using Jobify.DBContext;
 using Jobify.Dto.Post;
 using Jobify.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Jobify.Repositories
 {
@@ -26,6 +27,11 @@ namespace Jobify.Repositories
         public List<Post> GetPosts()
         {
             return _context.Post.ToList();
+        }
+
+        public IEnumerable<Post> GetPostByUserId(Guid userId)
+        {
+            return _context.Post.Where(p => p.UserId == userId).Include(p => p.Responses).ThenInclude(r => r.User);
         }
 
         public void UpdatePost(UpdatePostDto newPost, int oldPostId)

@@ -10,6 +10,8 @@ namespace Jobify.Repositories
     {
         Rating GetRatingById(int id);
         List<Rating> GetRating();
+        double GetAverageRatingByUserId(Guid userId);
+        Rating? GetRatingByPostUsersIds(Guid ratedId, Guid raterId, int postId);
         void CreateRating(Rating newRating);
         void UpdateRating(UpdateRatingDto newRating, int oldRatingId);
         void DeleteRating(int ratingid);

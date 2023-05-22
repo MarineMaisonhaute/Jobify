@@ -195,7 +195,7 @@ namespace Jobify.Migrations
                     PhotoURL = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     JobId = table.Column<int>(type: "int", nullable: false),
                     UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Price = table.Column<int>(type: "int", nullable: false),
                     FinishDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Department = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
@@ -250,7 +250,8 @@ namespace Jobify.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     PostId = table.Column<int>(type: "int", nullable: false),
-                    Comment = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Comment = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PostId1 = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -266,7 +267,17 @@ namespace Jobify.Migrations
                         column: x => x.PostId,
                         principalTable: "Post",
                         principalColumn: "PostId");
+                    table.ForeignKey(
+                        name: "FK_Response_Post_PostId1",
+                        column: x => x.PostId1,
+                        principalTable: "Post",
+                        principalColumn: "PostId");
                 });
+
+            migrationBuilder.InsertData(
+                table: "Job",
+                columns: new[] { "JobId", "Name" },
+                values: new object[] { 1, "AUCUN" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -336,6 +347,11 @@ namespace Jobify.Migrations
                 name: "IX_Response_PostId",
                 table: "Response",
                 column: "PostId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Response_PostId1",
+                table: "Response",
+                column: "PostId1");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Response_UserId",

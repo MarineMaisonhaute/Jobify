@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Jobify.Migrations
 {
     [DbContext(typeof(JobifyDBContext))]
-    [Migration("20230210151708_AddedJobNone")]
-    partial class AddedJobNone
+    [Migration("20230522122252_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -78,8 +78,8 @@ namespace Jobify.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<int>("Price")
+                        .HasColumnType("int");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
@@ -135,8 +135,10 @@ namespace Jobify.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("PostId")
-                        .IsRequired()
+                    b.Property<int>("PostId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PostId1")
                         .HasColumnType("int");
 
                     b.Property<Guid>("UserId")
@@ -145,6 +147,8 @@ namespace Jobify.Migrations
                     b.HasKey("ResponseId");
 
                     b.HasIndex("PostId");
+
+                    b.HasIndex("PostId1");
 
                     b.HasIndex("UserId");
 
@@ -437,6 +441,10 @@ namespace Jobify.Migrations
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
+                    b.HasOne("Jobify.Models.Post", null)
+                        .WithMany("Responses")
+                        .HasForeignKey("PostId1");
+
                     b.HasOne("Jobify.Models.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
@@ -508,6 +516,11 @@ namespace Jobify.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Jobify.Models.Post", b =>
+                {
+                    b.Navigation("Responses");
                 });
 #pragma warning restore 612, 618
         }

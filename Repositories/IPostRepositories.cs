@@ -7,6 +7,8 @@ namespace Jobify.Repositories
     {
         Post GetPostById(int id);
         List<Post> GetPosts();
+
+        IEnumerable<Post> GetPostByUserId(Guid userId);
         void CreatePost(Post newPost);
         void UpdatePost(UpdatePostDto newPost, int oldPostId);
         void DeletePost(int id);

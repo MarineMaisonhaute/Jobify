@@ -41,6 +41,8 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 builder.Services.AddScoped<IPostRepositories, PostRepositories>();
 builder.Services.AddScoped<IJobRepositories, JobRepositories>();
+builder.Services.AddScoped<IRatingRepositories, RatingRepositories>();
+builder.Services.AddScoped<IResponseRepositories, ResponseRepositories>();
 
 var configuration = new ConfigurationBuilder()
     .AddJsonFile("appsettings.json", optional: false)

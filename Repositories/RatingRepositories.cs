@@ -24,6 +24,23 @@ namespace Jobify.Repositories
             _context.Rating.Add(newrating);
             _context.SaveChanges();
         }
+
+        public double GetAverageRatingByUserId(Guid userId)
+        {
+            IEnumerable<Rating> ratings = _context.Rating.Where(r => r.RatedUserId == userId);
+
+            if(ratings.Count() == 0)
+            {
+                return 0;
+            }
+
+            return ratings.Average(r => r.Note);
+        }
+
+        public Rating? GetRatingByPostUsersIds(Guid ratedId, Guid raterId, int postId)
+        {
+            return _context.Rating.FirstOrDefault(r => r.RaterUserId == raterId && r.RatedUserId == ratedId && r.PostId == postId);
+        }
         public List<Rating> GetRating()
         {
             return _context.Rating.ToList();

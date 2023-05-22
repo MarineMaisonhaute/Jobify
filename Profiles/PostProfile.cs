@@ -10,6 +10,9 @@ namespace Jobify.Profiles
         {
             CreateMap<UpdatePostDto, Post>();
             CreateMap<CreatePostDto, Post>();
+            CreateMap<Post, GetUserPostDto>();
+            CreateMap<User, UserForPostDto>();
+            CreateMap<Response, ResponseForPostDto>();
         }
     }
 }

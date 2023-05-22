@@ -20,6 +20,7 @@ namespace Jobify.Repositories
         {
             return _context.Response.Where(r => r.ResponseId == id).FirstOrDefault();
         }
+
         public void CreateResponse(Response newResponse)
         {
             _context.Response.Add(newResponse);
