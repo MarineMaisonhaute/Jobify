@@ -64,6 +64,17 @@ namespace Jobify.Controllers
             return Ok(getPostDto);
         }
 
+        [HttpGet("date")]
+        public ActionResult<Post> GetPosttAfterDate(DateTime date)
+        {
+            IEnumerable<Post> posts = _postRepositories.GetPostAfterDate(date);
+            if (posts == null)
+            {
+                return NotFound();
+            }
+            return Ok(posts);
+        }
+
         [HttpGet]
         public ActionResult<IEnumerable<Post>> GetPost()
         {

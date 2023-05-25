@@ -7,6 +7,7 @@ namespace Jobify.Repositories
     {
         Post GetPostById(int id);
         List<Post> GetPosts();
+        List<Post> GetPostAfterDate(DateTime date);
 
         IEnumerable<Post> GetPostByUserId(Guid userId);
         void CreatePost(Post newPost);

@@ -19,6 +19,11 @@ namespace Jobify.Repositories
         {
             return _context.Post.Where(p => p.PostId == id).FirstOrDefault();
         }
+        public List<Post> GetPostAfterDate(DateTime date)
+        {
+
+            return _context.Post.Where(p => p.FinishDate > date.AddMonths(1)).ToList();
+        }
         public void CreatePost(Post newPost)
         {
             _context.Post.Add(newPost);
